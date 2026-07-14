@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<!-- DEMO ENVIRONMENT — NOT AFFILIATED WITH PLUS RETAIL. For product demonstration purposes only. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>PLUS Supermarket | Order your groceries easily — Demo</title>
+
+  <!-- ===== ONETRUST CMP SCRIPTS — INSERT HERE ===== -->
+  <!-- OneTrust Cookies Consent Notice start -->
+  <!-- OneTrust Cookies Consent Notice end -->
+  <!-- ============================================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- Top utility bar -->
+  <div class="utility-bar">
+    <div class="container">
+      <span>Ordered before 23:55, delivered tomorrow*</span>
+      <span>More than 1600 Low-Price Staples</span>
+      <span>PLUS Express: at your address in 2 hours</span>
+      <nav class="utility-links" aria-label="Service links">
+        <a href="#">Weekly Flyer</a>
+        <a href="#">Customer Service</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="site-header">
+    <div class="container header-main">
+      <a class="logo" href="index.html" aria-label="PLUS home">
+        <img src="assets/img/plus-logo.svg" alt="PLUS" width="70" height="48">
+      </a>
+
+      <form class="search" role="search" onsubmit="return false;">
+        <label class="visually-hidden" for="site-search">Search</label>
+        <input id="site-search" type="search" placeholder="Search products, recipes…">
+        <button type="submit" aria-label="Search">🔍</button>
+      </form>
+
+      <div class="header-actions">
+        <a class="header-action" href="account.html">
+          <span class="icon" aria-hidden="true">👤</span>
+          <span class="action-text">Hi, Anuschka</span>
+        </a>
+        <a class="header-action cart" href="#" aria-label="Shopping cart, 3 items, 24 euros 85">
+          <span class="icon" aria-hidden="true">🛒</span>
+          <span class="cart-badge" aria-hidden="true">3</span>
+          <span class="action-text">€ 24.85</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Main navigation -->
+    <nav class="main-nav" aria-label="Main">
+      <div class="container">
+        <ul>
+          <li class="nav-item-dropdown">
+            <button class="nav-toggle" id="products-toggle" aria-expanded="false" aria-controls="products-menu">
+              Products ▾
+            </button>
+            <div class="nav-dropdown" id="products-menu">
+              <a href="#">Offers</a>
+              <a href="#">BBQ Range</a>
+              <a href="#">Potatoes, Vegetables, Fruit</a>
+              <a href="#">Fresh Ready Meals</a>
+              <a href="#">Meat, Chicken, Fish, Veggie</a>
+              <a href="#">Dairy &amp; Eggs</a>
+              <a href="#">Bread &amp; Bakery</a>
+              <a href="#">Drinks</a>
+            </div>
+          </li>
+          <li><a href="#">Offers</a></li>
+          <li><a href="#">Recipes</a></li>
+          <li><a href="#">Good Food</a></li>
+          <li><a href="#">Savings Campaigns</a></li>
+          <li><a href="#">Business</a></li>
+          <li><a href="#">Stores</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- Hero -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <h1 id="hero-title">1+1 FREE offers of the week</h1>
+          <p>Stock up on your favourites — hundreds of products with 1+1 FREE, fresh from your local PLUS. This week only.</p>
+          <a class="btn btn-primary" href="#offers">View offers</a>
+        </div>
+      </section>
+
+      <!-- Promo tile grid -->
+      <section class="section" aria-labelledby="promo-title">
+        <h2 id="promo-title">This week at PLUS</h2>
+        <div class="tile-grid">
+          <article class="tile">
+            <div class="tile-visual v-red" aria-hidden="true">🍖</div>
+            <div class="tile-body">
+              <h3>BBQ offers of the week</h3>
+              <p>3+1 FREE on the full BBQ range. Fire it up.</p>
+              <a href="#">View offers →</a>
+            </div>
+          </article>
+          <article class="tile">
+            <div class="tile-visual v-yellow" aria-hidden="true">🥜</div>
+            <div class="tile-body">
+              <h3>All peanut butter 350&nbsp;g</h3>
+              <p>Now 1+1 FREE on every jar.</p>
+              <a href="#">Shop now →</a>
+            </div>
+          </article>
+          <article class="tile">
+            <div class="tile-visual v-green" aria-hidden="true">📰</div>
+            <div class="tile-body">
+              <h3>Weekly flyer</h3>
+              <p>All offers of this week in one overview.</p>
+              <a href="#">Open the flyer →</a>
+            </div>
+          </article>
+          <article class="tile">
+            <div class="tile-visual v-blue" aria-hidden="true">🚚</div>
+            <div class="tile-body">
+              <h3>Free delivery deals</h3>
+              <p>Selected brands delivered free from € 8.50.</p>
+              <a href="#">View deals →</a>
+            </div>
+          </article>
+          <article class="tile">
+            <div class="tile-visual v-orange" aria-hidden="true">✨</div>
+            <div class="tile-body">
+              <h3>New in store</h3>
+              <p>Fresh arrivals — now on the shelf.</p>
+              <a href="#">Discover →</a>
+            </div>
+          </article>
+          <article class="tile">
+            <div class="tile-visual v-green" aria-hidden="true">📦</div>
+            <div class="tile-body">
+              <h3>PLUS Delivery Bundle</h3>
+              <p>Unlimited delivery on all your orders. Try 1 month free.</p>
+              <a href="#">Try it free →</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Offer cards -->
+      <section class="section" id="offers" aria-labelledby="offers-title">
+        <h2 id="offers-title">We're in it together.</h2>
+        <p class="section-sub">Hand-picked offers from your local store.</p>
+        <div class="offer-grid">
+          <article class="offer-card">
+            <span class="offer-badge">1+1 FREE</span>
+            <div class="offer-visual v-yellow" aria-hidden="true">🥜</div>
+            <h3>Peanut Butter Crunchy</h3>
+            <p class="offer-unit">Jar 350 g</p>
+            <p class="offer-price"><span class="was">€ 3.79</span>€ 1.89</p>
+          </article>
+          <article class="offer-card">
+            <span class="offer-badge">1+1 FREE</span>
+            <div class="offer-visual v-red" aria-hidden="true">🥤</div>
+            <h3>Cola, Orange &amp; Lemon-Lime</h3>
+            <p class="offer-unit">Bottle 1.5 L</p>
+            <p class="offer-price"><span class="was">€ 2.59</span>€ 1.29</p>
+          </article>
+          <article class="offer-card">
+            <span class="offer-badge">1+1 FREE</span>
+            <div class="offer-visual v-blue" aria-hidden="true">🍦</div>
+            <h3>A-Brand Ice Cream Bars</h3>
+            <p class="offer-unit">Box of 6</p>
+            <p class="offer-price"><span class="was">€ 4.99</span>€ 2.49</p>
+          </article>
+          <article class="offer-card">
+            <span class="offer-badge">3+1 FREE</span>
+            <div class="offer-visual v-orange" aria-hidden="true">🍗</div>
+            <h3>BBQ Chicken Skewers</h3>
+            <p class="offer-unit">Pack 4 pieces</p>
+            <p class="offer-price"><span class="was">€ 5.49</span>€ 4.12</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Category grid -->
+      <section class="section" aria-labelledby="cat-title">
+        <h2 id="cat-title">Our range</h2>
+        <div class="category-grid">
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🏷️</span>Offers</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🍖</span>BBQ Range</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🥔</span>Potatoes, Veg, Fruit</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🍝</span>Fresh Ready Meals</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🍗</span>Meat, Fish, Veggie</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🧀</span>Cheese &amp; Deli</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🥛</span>Dairy, Eggs, Butter</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🍞</span>Bread &amp; Bakery</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">☕</span>Drinks, Coffee, Tea</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🍷</span>Wine, Beer, Spirits</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🧊</span>Frozen</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🧴</span>Household &amp; Care</a>
+        </div>
+      </section>
+
+      <!-- Recipe strip -->
+      <section class="section" aria-labelledby="recipe-title">
+        <h2 id="recipe-title">Cooking with this week's offers</h2>
+        <div class="recipe-grid">
+          <article class="recipe-card">
+            <div class="recipe-visual v-yellow" aria-hidden="true">🥪</div>
+            <div class="recipe-body">
+              <h3>Banana &amp; peanut butter toastie</h3>
+              <span class="recipe-time">20 min</span>
+            </div>
+          </article>
+          <article class="recipe-card">
+            <div class="recipe-visual v-red" aria-hidden="true">🍕</div>
+            <div class="recipe-body">
+              <h3>Focaccia pizza</h3>
+              <span class="recipe-time">20 min</span>
+            </div>
+          </article>
+          <article class="recipe-card">
+            <div class="recipe-visual v-orange" aria-hidden="true">🥔</div>
+            <div class="recipe-body">
+              <h3>BBQ potatoes with pulled chicken</h3>
+              <span class="recipe-time">75 min</span>
+            </div>
+          </article>
+          <article class="recipe-card">
+            <div class="recipe-visual v-green" aria-hidden="true">🥗</div>
+            <div class="recipe-body">
+              <h3>Peach &amp; burrata salad</h3>
+              <span class="recipe-time">30 min</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Newsletter -->
+      <section class="newsletter" aria-labelledby="nl-title">
+        <div>
+          <h2 id="nl-title">PLUS Newsletter</h2>
+          <p>The best offers, campaigns and inspiration ~2x per week in your inbox.</p>
+        </div>
+        <form id="newsletter-form" novalidate>
+          <label class="visually-hidden" for="nl-email">Email address</label>
+          <input id="nl-email" type="email" placeholder="Your email address" required>
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+          <span class="form-note" id="nl-note" role="status" aria-live="polite"></span>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-columns">
+        <nav aria-labelledby="fc1">
+          <h3 id="fc1">PLUS</h3>
+          <ul>
+            <li><a href="#">About PLUS</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="fc2">
+          <h3 id="fc2">Online Ordering</h3>
+          <ul>
+            <li><a href="#">Order online</a></li>
+            <li><a href="#">PLUS app</a></li>
+            <li><a href="#">Free delivery</a></li>
+            <li><a href="#">Business</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="fc3">
+          <h3 id="fc3">Customer Service</h3>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Returns</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="fc4">
+          <h3 id="fc4">Campaigns</h3>
+          <ul>
+            <li><a href="#">Loyalty Points</a></li>
+            <li><a href="#">Low-Price Staples</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Privacy Statement</a>
+        <!-- OneTrust standard hook: this link reopens the CMP preference center once the SDK is loaded -->
+        <a href="#" id="ot-sdk-btn" class="ot-sdk-show-settings">Cookie Settings</a>
+        <a href="#">Cookie Information</a>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="X">𝕏</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="YouTube">▶</a>
+          <a href="#" aria-label="Pinterest">📌</a>
+        </div>
+      </div>
+      <p class="footer-demo-note">Demo environment for product demonstration purposes only. Not affiliated with PLUS Retail.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+
+  <!-- ============================================================
+       DUMMY THIRD-PARTY SCRIPTS — for the script auto-blocking demo.
+       These simulate real analytics / advertising tags. When the CMP
+       is installed, re-tag them, e.g.:
+         type="text/plain" class="optanon-category-C0002"   (analytics)
+         type="text/plain" class="optanon-category-C0004"   (advertising)
+       so the CMP controls whether they execute based on consent.
+       ============================================================ -->
+  <script src="assets/js/demo-analytics.js" class="demo-third-party demo-category-analytics"></script>
+  <script src="assets/js/demo-ads.js" class="demo-third-party demo-category-advertising"></script>
+
+</body>
+</html>

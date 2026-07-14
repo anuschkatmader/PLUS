@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<!-- DEMO ENVIRONMENT — NOT AFFILIATED WITH PLUS RETAIL. For product demonstration purposes only. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>My Account — PLUS Supermarket | Demo</title>
+
+  <!-- ===== ONETRUST CMP SCRIPTS — INSERT HERE ===== -->
+  <!-- OneTrust Cookies Consent Notice start -->
+  <!-- OneTrust Cookies Consent Notice end -->
+  <!-- ============================================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- Top utility bar -->
+  <div class="utility-bar">
+    <div class="container">
+      <span>Ordered before 23:55, delivered tomorrow*</span>
+      <span>More than 1600 Low-Price Staples</span>
+      <span>PLUS Express: at your address in 2 hours</span>
+      <nav class="utility-links" aria-label="Service links">
+        <a href="#">Weekly Flyer</a>
+        <a href="#">Customer Service</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="site-header">
+    <div class="container header-main">
+      <a class="logo" href="index.html" aria-label="PLUS home">
+        <img src="assets/img/plus-logo.svg" alt="PLUS" width="70" height="48">
+      </a>
+
+      <form class="search" role="search" onsubmit="return false;">
+        <label class="visually-hidden" for="site-search">Search</label>
+        <input id="site-search" type="search" placeholder="Search products, recipes…">
+        <button type="submit" aria-label="Search">🔍</button>
+      </form>
+
+      <div class="header-actions">
+        <a class="header-action" href="account.html" aria-current="page">
+          <span class="icon" aria-hidden="true">👤</span>
+          <span class="action-text">Hi, Anuschka</span>
+        </a>
+        <a class="header-action cart" href="#" aria-label="Shopping cart, 3 items, 24 euros 85">
+          <span class="icon" aria-hidden="true">🛒</span>
+          <span class="cart-badge" aria-hidden="true">3</span>
+          <span class="action-text">€ 24.85</span>
+        </a>
+      </div>
+    </div>
+
+    <nav class="main-nav" aria-label="Main">
+      <div class="container">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Offers</a></li>
+          <li><a href="#">Recipes</a></li>
+          <li><a href="#">Good Food</a></li>
+          <li><a href="#">Savings Campaigns</a></li>
+          <li><a href="#">Business</a></li>
+          <li><a href="#">Stores</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container account-layout">
+
+      <!-- Sidebar -->
+      <aside class="account-sidebar">
+        <div class="account-user">
+          <span class="account-avatar" aria-hidden="true">AM</span>
+          <div>
+            <strong>Anuschka Mader</strong>
+            <span>PLUS card 2600 1234 5678</span>
+          </div>
+        </div>
+        <ul class="account-nav" role="tablist" aria-label="Account sections">
+          <li><button data-panel="overview" aria-current="true"><span aria-hidden="true">🏠</span> My Overview</button></li>
+          <li><button data-panel="orders"><span aria-hidden="true">📦</span> My Orders</button></li>
+          <li><button data-panel="details"><span aria-hidden="true">👤</span> My Personal Details</button></li>
+          <li><button data-panel="addresses"><span aria-hidden="true">📍</span> Delivery Addresses</button></li>
+          <li><button data-panel="points"><span aria-hidden="true">⭐</span> My PLUS Points</button></li>
+          <li><button data-panel="lists"><span aria-hidden="true">📝</span> Shopping Lists</button></li>
+          <li><button data-panel="privacy"><span aria-hidden="true">🔒</span> Privacy &amp; Preferences</button></li>
+          <li><button data-panel="payments"><span aria-hidden="true">💳</span> Payment Methods</button></li>
+          <li class="nav-sep" role="presentation"></li>
+          <li><button type="button"><span aria-hidden="true">↩</span> Log Out</button></li>
+        </ul>
+      </aside>
+
+      <!-- Panels -->
+      <div class="account-content">
+
+        <!-- My Overview -->
+        <section class="account-panel active" id="panel-overview" aria-label="My Overview">
+          <h1>Welcome back, Anuschka!</h1>
+          <p class="panel-sub">Your home store: PLUS Amsterdam Centrum · Member since 2021</p>
+
+          <div class="card-grid-2">
+            <div class="card">
+              <h2>Latest order</h2>
+              <div class="detail-row">
+                <div>
+                  <span class="detail-label">8 July 2026 · Order #PL-20260708-113</span>
+                  Delivered to home · 24 items
+                </div>
+                <span class="status-pill">Delivered</span>
+              </div>
+              <div class="detail-row">
+                <div><span class="detail-label">Order total</span>€ 87.45</div>
+                <button class="btn btn-secondary" type="button">View order</button>
+              </div>
+            </div>
+            <div class="card">
+              <h2>My PLUS Points</h2>
+              <p class="points-balance">1,247 <span style="font-size:1rem;">points</span></p>
+              <div class="progress" role="progressbar" aria-valuenow="1247" aria-valuemin="0" aria-valuemax="1500" aria-label="Progress to next reward">
+                <div class="progress-bar" style="width: 83%;"></div>
+              </div>
+              <p class="progress-note">253 points to your next € 7.50 reward.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Quick links</h2>
+            <div class="pref-actions" style="margin-top:0;">
+              <button class="btn btn-ghost" type="button" data-goto="orders">Order again</button>
+              <button class="btn btn-ghost" type="button" data-goto="lists">My shopping lists</button>
+              <button class="btn btn-ghost" type="button" data-goto="privacy">Privacy &amp; preferences</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- My Orders -->
+        <section class="account-panel" id="panel-orders" aria-label="My Orders">
+          <h1>My Orders</h1>
+          <p class="panel-sub">Your recent orders at PLUS.</p>
+          <div class="card">
+            <table class="data-table">
+              <thead>
+                <tr><th>Date</th><th>Order no.</th><th>Store</th><th>Total</th><th>Status</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>8 Jul 2026</td><td>PL-20260708-113</td><td>PLUS Amsterdam Centrum</td><td>€ 87.45</td>
+                  <td><span class="status-pill">Delivered</span></td>
+                  <td><button class="btn btn-ghost" type="button">View</button></td>
+                </tr>
+                <tr>
+                  <td>24 Jun 2026</td><td>PL-20260624-078</td><td>PLUS Amsterdam Centrum</td><td>€ 56.12</td>
+                  <td><span class="status-pill">Delivered</span></td>
+                  <td><button class="btn btn-ghost" type="button">View</button></td>
+                </tr>
+                <tr>
+                  <td>11 Jun 2026</td><td>PL-20260611-041</td><td>PLUS Express</td><td>€ 19.90</td>
+                  <td><span class="status-pill">Delivered</span></td>
+                  <td><button class="btn btn-ghost" type="button">View</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- My Personal Details -->
+        <section class="account-panel" id="panel-details" aria-label="My Personal Details">
+          <h1>My Personal Details</h1>
+          <p class="panel-sub">Keep your details up to date so we can serve you better.</p>
+          <div class="card">
+            <div class="detail-row">
+              <div><span class="detail-label">Full name</span>Anuschka Mader</div>
+              <button class="btn btn-ghost" type="button">Edit</button>
+            </div>
+            <div class="detail-row">
+              <div><span class="detail-label">Date of birth</span>14-03-1987</div>
+              <button class="btn btn-ghost" type="button">Edit</button>
+            </div>
+            <div class="detail-row">
+              <div><span class="detail-label">Email address</span>anuschka.mader@example.com</div>
+              <button class="btn btn-ghost" type="button">Edit</button>
+            </div>
+            <div class="detail-row">
+              <div><span class="detail-label">Phone number</span>+31 6 12 34 56 78</div>
+              <button class="btn btn-ghost" type="button">Edit</button>
+            </div>
+            <div class="detail-row">
+              <div><span class="detail-label">PLUS card number</span>2600 1234 5678</div>
+              <button class="btn btn-ghost" type="button">Edit</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Delivery Addresses -->
+        <section class="account-panel" id="panel-addresses" aria-label="Delivery Addresses">
+          <h1>Delivery Addresses</h1>
+          <p class="panel-sub">Where should we deliver your groceries?</p>
+          <div class="card">
+            <div class="detail-row">
+              <div><span class="detail-label">Home · default</span>Keizersgracht 123, 1015 CJ Amsterdam</div>
+              <button class="btn btn-ghost" type="button">Edit</button>
+            </div>
+            <div class="detail-row">
+              <div><span class="detail-label">Work</span>Herengracht 456, 1017 CA Amsterdam</div>
+              <button class="btn btn-ghost" type="button">Edit</button>
+            </div>
+            <div class="detail-row">
+              <div></div>
+              <button class="btn btn-secondary" type="button">Add address</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- My PLUS Points -->
+        <section class="account-panel" id="panel-points" aria-label="My PLUS Points">
+          <h1>My PLUS Points</h1>
+          <p class="panel-sub">Save points with every purchase and redeem them for rewards.</p>
+          <div class="card">
+            <h2>Balance</h2>
+            <p class="points-balance">1,247 <span style="font-size:1rem;">points</span></p>
+            <div class="progress" role="progressbar" aria-valuenow="1247" aria-valuemin="0" aria-valuemax="1500" aria-label="Progress to next reward">
+              <div class="progress-bar" style="width: 83%;"></div>
+            </div>
+            <p class="progress-note">253 points to your next € 7.50 reward.</p>
+          </div>
+          <div class="card">
+            <h2>Recent point activity</h2>
+            <table class="data-table">
+              <thead><tr><th>Date</th><th>Activity</th><th>Points</th></tr></thead>
+              <tbody>
+                <tr><td>8 Jul 2026</td><td>Order PL-20260708-113</td><td>+87</td></tr>
+                <tr><td>1 Jul 2026</td><td>Bonus: summer campaign</td><td>+150</td></tr>
+                <tr><td>24 Jun 2026</td><td>Order PL-20260624-078</td><td>+56</td></tr>
+                <tr><td>15 Jun 2026</td><td>Reward redeemed</td><td>−500</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Shopping Lists -->
+        <section class="account-panel" id="panel-lists" aria-label="Shopping Lists">
+          <h1>Shopping Lists</h1>
+          <p class="panel-sub">Plan your groceries ahead.</p>
+          <div class="card">
+            <div class="detail-row">
+              <div><span class="detail-label">12 items</span>Weekly basics</div>
+              <button class="btn btn-ghost" type="button">Open</button>
+            </div>
+            <div class="detail-row">
+              <div><span class="detail-label">8 items</span>BBQ Saturday</div>
+              <button class="btn btn-ghost" type="button">Open</button>
+            </div>
+            <div class="detail-row">
+              <div></div>
+              <button class="btn btn-secondary" type="button">New list</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Privacy & Preferences (UCPM demo centerpiece) -->
+        <section class="account-panel" id="panel-privacy" aria-label="Privacy and Preferences">
+          <h1>Privacy &amp; Preferences</h1>
+          <p class="panel-sub">You decide how we contact you and how your data is used. Change your choices at any time — they take effect immediately.</p>
+
+          <!--
+            UCPM INTEGRATION HOOKS:
+            Each control carries a data-purpose-id attribute. Wire these to the
+            consent platform's collection point / purpose IDs, replacing the
+            localStorage persistence in assets/js/preferences.js with real
+            consent API receipts (create/update transaction per save).
+          -->
+
+          <form id="preference-form" novalidate>
+
+            <div class="card pref-group">
+              <h2>Communication channels</h2>
+              <p class="pref-group-desc">Choose how you'd like to hear from us.</p>
+
+              <div class="pref-row">
+                <div>
+                  <span class="pref-label" id="lbl-email">Email newsletter</span>
+                  <p class="pref-desc">Offers, campaigns and inspiration by email.</p>
+                </div>
+                <span class="switch">
+                  <input type="checkbox" data-purpose-id="email-marketing" aria-labelledby="lbl-email" checked>
+                  <span class="slider"></span>
+                </span>
+              </div>
+
+              <div class="pref-row">
+                <div>
+                  <span class="pref-label" id="lbl-sms">SMS / text messages</span>
+                  <p class="pref-desc">Short updates about offers and your orders.</p>
+                </div>
+                <span class="switch">
+                  <input type="checkbox" data-purpose-id="sms-marketing" aria-labelledby="lbl-sms">
+                  <span class="slider"></span>
+                </span>
+              </div>
+
+              <div class="pref-row">
+                <div>
+                  <span class="pref-label" id="lbl-push">Push notifications (PLUS app)</span>
+                  <p class="pref-desc">Notifications on your phone via the PLUS app.</p>
+                </div>
+                <span class="switch">
+                  <input type="checkbox" data-purpose-id="push-marketing" aria-labelledby="lbl-push" checked>
+                  <span class="slider"></span>
+                </span>
+              </div>
+
+              <div class="pref-row">
+                <div>
+                  <span class="pref-label" id="lbl-post">Postal mail (weekly flyer)</span>
+                  <p class="pref-desc">The paper flyer in your letterbox every week.</p>
+                </div>
+                <span class="switch">
+                  <input type="checkbox" data-purpose-id="postal-marketing" aria-labelledby="lbl-post" checked>
+                  <span class="slider"></span>
+                </span>
+              </div>
+            </div>
+
+            <div class="card pref-group">
+              <h2>Topics of interest</h2>
+              <p class="pref-group-desc">Tell us what you care about — we'll tailor our updates.</p>
+              <div class="choice-grid">
+                <label class="choice"><input type="checkbox" data-purpose-id="topic-offers" checked> Weekly offers</label>
+                <label class="choice"><input type="checkbox" data-purpose-id="topic-recipes" checked> Recipes &amp; inspiration</label>
+                <label class="choice"><input type="checkbox" data-purpose-id="topic-bbq"> BBQ &amp; seasonal</label>
+                <label class="choice"><input type="checkbox" data-purpose-id="topic-wine"> Wine &amp; specialty</label>
+                <label class="choice"><input type="checkbox" data-purpose-id="topic-sustainability" checked> Sustainability news</label>
+                <label class="choice"><input type="checkbox" data-purpose-id="topic-loyalty"> Loyalty campaign updates</label>
+              </div>
+            </div>
+
+            <div class="card pref-group">
+              <h2>Contact frequency</h2>
+              <p class="pref-group-desc">How often may we contact you?</p>
+              <div class="radio-stack" role="radiogroup" aria-label="Contact frequency">
+                <label class="choice">
+                  <input type="radio" name="frequency" value="all" data-purpose-id="frequency" checked>
+                  <span>All updates<span class="choice-desc">2–3× per week — never miss an offer.</span></span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="frequency" value="weekly" data-purpose-id="frequency">
+                  <span>Weekly digest<span class="choice-desc">One email with the highlights, every Monday.</span></span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="frequency" value="monthly" data-purpose-id="frequency">
+                  <span>Monthly digest<span class="choice-desc">A monthly round-up of the best campaigns.</span></span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="frequency" value="essential" data-purpose-id="frequency">
+                  <span>Only essential service messages<span class="choice-desc">Order confirmations and account notices only.</span></span>
+                </label>
+              </div>
+              <p class="helper-note">💡 Prefer fewer emails? Choose a lower frequency instead of unsubscribing completely.</p>
+            </div>
+
+            <div class="card pref-group">
+              <h2>Personalisation &amp; data use</h2>
+              <p class="pref-group-desc">Control how your data may be used.</p>
+
+              <div class="pref-row">
+                <div>
+                  <span class="pref-label" id="lbl-personal">Personalised offers based on purchase history</span>
+                  <p class="pref-desc">We use your purchases to show offers that fit you.</p>
+                </div>
+                <span class="switch">
+                  <input type="checkbox" data-purpose-id="personalised-offers" aria-labelledby="lbl-personal" checked>
+                  <span class="slider"></span>
+                </span>
+              </div>
+
+              <div class="pref-row">
+                <div>
+                  <span class="pref-label" id="lbl-adshare">Sharing encrypted data with advertising partners</span>
+                  <p class="pref-desc">Encrypted data (such as a hashed email address) may be shared with advertising partners to show personalised ads on and off our websites.</p>
+                </div>
+                <span class="switch">
+                  <input type="checkbox" data-purpose-id="ad-partner-sharing" aria-labelledby="lbl-adshare">
+                  <span class="slider"></span>
+                </span>
+              </div>
+
+              <div class="pref-row">
+                <div>
+                  <span class="pref-label" id="lbl-analytics">Analytics to improve our services</span>
+                  <p class="pref-desc">We analyse usage to measure and improve our campaigns and services.</p>
+                </div>
+                <span class="switch">
+                  <input type="checkbox" data-purpose-id="analytics" aria-labelledby="lbl-analytics" checked>
+                  <span class="slider"></span>
+                </span>
+              </div>
+            </div>
+
+            <div class="card">
+              <h2>Consent history</h2>
+              <p class="pref-group-desc">A record of the choices made on this account.</p>
+              <table class="data-table" id="consent-history">
+                <thead>
+                  <tr><th>Date</th><th>Purpose</th><th>Decision</th><th>Channel</th></tr>
+                </thead>
+                <tbody><!-- rows rendered by preferences.js --></tbody>
+              </table>
+            </div>
+
+            <div class="pref-actions">
+              <button class="btn btn-primary" type="submit">Save preferences</button>
+              <button class="btn btn-secondary" type="button" id="withdraw-all">Withdraw all consent</button>
+              <!-- OneTrust standard hook: opens the cookie preference center once the SDK is loaded -->
+              <a class="cookie-link ot-sdk-show-settings" href="#">Manage cookie settings</a>
+            </div>
+
+          </form>
+        </section>
+
+        <!-- Payment Methods -->
+        <section class="account-panel" id="panel-payments" aria-label="Payment Methods">
+          <h1>Payment Methods</h1>
+          <p class="panel-sub">Manage how you pay for your orders.</p>
+          <div class="card">
+            <div class="detail-row">
+              <div><span class="detail-label">Default</span>iDEAL — ING Bank</div>
+              <button class="btn btn-ghost" type="button">Edit</button>
+            </div>
+            <div class="detail-row">
+              <div><span class="detail-label">Card</span>Debit card •••• 4821</div>
+              <button class="btn btn-ghost" type="button">Edit</button>
+            </div>
+            <div class="detail-row">
+              <div></div>
+              <button class="btn btn-secondary" type="button">Add payment method</button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-columns">
+        <nav aria-labelledby="fc1">
+          <h3 id="fc1">PLUS</h3>
+          <ul>
+            <li><a href="#">About PLUS</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="fc2">
+          <h3 id="fc2">Online Ordering</h3>
+          <ul>
+            <li><a href="#">Order online</a></li>
+            <li><a href="#">PLUS app</a></li>
+            <li><a href="#">Free delivery</a></li>
+            <li><a href="#">Business</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="fc3">
+          <h3 id="fc3">Customer Service</h3>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Returns</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="fc4">
+          <h3 id="fc4">Campaigns</h3>
+          <ul>
+            <li><a href="#">Loyalty Points</a></li>
+            <li><a href="#">Low-Price Staples</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Privacy Statement</a>
+        <!-- OneTrust standard hook: this link reopens the CMP preference center once the SDK is loaded -->
+        <a href="#" id="ot-sdk-btn" class="ot-sdk-show-settings">Cookie Settings</a>
+        <a href="#">Cookie Information</a>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="X">𝕏</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="YouTube">▶</a>
+          <a href="#" aria-label="Pinterest">📌</a>
+        </div>
+      </div>
+      <p class="footer-demo-note">Demo environment for product demonstration purposes only. Not affiliated with PLUS Retail.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/preferences.js"></script>
+</body>
+</html>

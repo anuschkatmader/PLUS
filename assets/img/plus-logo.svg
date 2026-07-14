@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 96" role="img" aria-label="PLUS demo logo">
+  <!-- DEMO wordmark: original recreation for demo purposes, not the official PLUS logo -->
+  <path d="M14 4 h112 a10 10 0 0 1 10 10 v54 a10 10 0 0 1 -10 10 h-40 l-16 14 -16 -14 h-40 a10 10 0 0 1 -10 -10 v-54 a10 10 0 0 1 10 -10 z" fill="#76B82A"/>
+  <text x="70" y="55" text-anchor="middle" font-family="Nunito, Arial, sans-serif" font-size="38" font-weight="900" fill="#ffffff" letter-spacing="1">PLUS</text>
+</svg>
