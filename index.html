@@ -546,6 +546,15 @@ function OptanonWrapper() { }
       width: 17px !important; height: 17px !important;
     }
 
+    /* checkbox tick fix: OneTrust draws the box (label::before) and the
+       white tick (label::after) as absolutely positioned pseudo-elements,
+       but only the tick gets an explicit top (5px), tuned for a one-line
+       label. With this multi-line consent text the box lands ~16px lower,
+       so the tick rendered white-on-white outside it. Pin both to the
+       same origin, aligned with the first text line. */
+    #ot-container .otwf-chkbox label::before { top: 3px !important; left: 0 !important; }
+    #ot-container .otwf-chkbox label::after { top: 8px !important; left: 4px !important; }
+
     /* submit button: PLUS green, muted green while disabled */
     #ot-container button.ot-submit {
       background: var(--plus-green, #8DAB0A) !important;
