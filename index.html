@@ -19,6 +19,27 @@
 </head>
 <body>
 
+  <!-- Inline SVG icon sprite (no emoji, no external icon fonts) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-5 8-5s6.5 1 8 5"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9.5" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/><path d="M3 4h2l2.6 11h10.9L21 8H6.2"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6-5.3-6-10a6 6 0 1112 0c0 4.7-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h12v10H2z"/><path d="M14 9h4l3 3v4h-7"/><circle cx="6.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M20 12l-8 8-9-9V4h7l10 8z"/><circle cx="7.5" cy="7.5" r="1.2"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3s5 4.5 5 9a5 5 0 01-10 0c0-2 1-3.6 2.2-4.8.1 1.6.9 2.8 2 3-.6-2.2-.2-5 .8-7.2z"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4C9 5 5 9 4 20c11-1 15-5 16-16z"/><path d="M4 20L14 10"/></symbol>
+    <symbol id="i-bowl" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0016 0"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M9 8l1-3M14 8l1-3"/></symbol>
+    <symbol id="i-fish" viewBox="0 0 24 24"><path d="M2 12s4-5 8.5-5S19 12 19 12s-4 5-8.5 5S2 12 2 12z"/><path d="M19 12l4-4v8l-4-4z"/><circle cx="6.5" cy="11" r=".8"/></symbol>
+    <symbol id="i-cheese" viewBox="0 0 24 24"><path d="M3 16l18-8v10H3v-2z"/><circle cx="8" cy="15" r="1.2"/><circle cx="14" cy="13" r="1.2"/></symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s5.5 6.5 5.5 11a5.5 5.5 0 01-11 0C6.5 9.5 12 3 12 3z"/></symbol>
+    <symbol id="i-bread" viewBox="0 0 24 24"><path d="M4 10a4 4 0 014-4h8a4 4 0 014 4 3 3 0 01-2 3v7H6v-7a3 3 0 01-2-3z"/></symbol>
+    <symbol id="i-cup" viewBox="0 0 24 24"><path d="M4 6h12v6a6 6 0 01-12 0V6z"/><path d="M16 8h2a3 3 0 010 6h-2"/></symbol>
+    <symbol id="i-wine" viewBox="0 0 24 24"><path d="M7 3h10c0 5-2 8-5 8s-5-3-5-8z"/><line x1="12" y1="11" x2="12" y2="19"/><line x1="8" y1="21" x2="16" y2="21"/></symbol>
+    <symbol id="i-snow" viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><line x1="4" y1="6" x2="20" y2="18"/><line x1="20" y1="6" x2="4" y2="18"/></symbol>
+    <symbol id="i-spray" viewBox="0 0 24 24"><path d="M8 10h8v11H8z"/><path d="M8 10V7h5l3 3"/><path d="M18 4h.01M21 6h.01M20 2h.01"/></symbol>
+  </svg>
+
   <!-- Top utility bar -->
   <div class="utility-bar">
     <div class="container">
@@ -32,33 +53,33 @@
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- Green header band -->
   <header class="site-header" id="site-header">
     <div class="container header-main">
       <a class="logo" href="index.html" aria-label="PLUS home">
-        <img src="assets/img/plus-logo.svg" alt="PLUS" width="70" height="48">
+        <img src="assets/img/plus-logo-white.svg" alt="PLUS" width="126" height="40">
       </a>
 
       <form class="search" role="search" onsubmit="return false;">
         <label class="visually-hidden" for="site-search">Search</label>
-        <input id="site-search" type="search" placeholder="Search products, recipes…">
-        <button type="submit" aria-label="Search">🔍</button>
+        <input id="site-search" type="search" placeholder="What are you looking for?">
+        <button type="submit" aria-label="Search"><svg class="ico" aria-hidden="true"><use href="#i-search"/></svg></button>
       </form>
 
       <div class="header-actions">
-        <a class="header-action" href="account.html">
-          <span class="icon" aria-hidden="true">👤</span>
+        <a class="header-pill pill-light" href="account.html">
+          <svg class="ico" aria-hidden="true"><use href="#i-user"/></svg>
           <span class="action-text">Hi, Anuschka</span>
         </a>
-        <a class="header-action cart" href="#" aria-label="Shopping cart, 3 items, 24 euros 85">
-          <span class="icon" aria-hidden="true">🛒</span>
+        <a class="header-pill pill-dark cart" href="#" aria-label="Shopping cart, 3 items, 24 euros 85">
+          <svg class="ico" aria-hidden="true"><use href="#i-cart"/></svg>
           <span class="cart-badge" aria-hidden="true">3</span>
           <span class="action-text">€ 24.85</span>
         </a>
       </div>
     </div>
 
-    <!-- Main navigation -->
+    <!-- White main navigation -->
     <nav class="main-nav" aria-label="Main">
       <div class="container">
         <ul>
@@ -79,10 +100,13 @@
           </li>
           <li><a href="#">Offers</a></li>
           <li><a href="#">Recipes</a></li>
-          <li><a href="#">Good Food</a></li>
+          <li><a href="#">Good Food ▾</a></li>
           <li><a href="#">Savings Campaigns</a></li>
           <li><a href="#">Business</a></li>
           <li><a href="#">Stores</a></li>
+          <li class="nav-right">
+            <a href="#"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Choose your store</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -91,67 +115,65 @@
   <main>
     <div class="container">
 
-      <!-- Hero -->
+      <!-- Hero: pale panel, red sticker, floating product thumbs -->
       <section class="hero" aria-labelledby="hero-title">
-        <div>
+        <div class="hero-text">
           <h1 id="hero-title">1+1 FREE offers of the week</h1>
-          <p>Stock up on your favourites — hundreds of products with 1+1 FREE, fresh from your local PLUS. This week only.</p>
-          <a class="btn btn-primary" href="#offers">View offers</a>
+          <a class="hero-link" href="#offers">View the offers ›</a>
         </div>
+
+        <figure class="hero-thumb ht-1" aria-hidden="true">
+          <img src="https://images.pexels.com/photos/3737611/pexels-photo-3737611.jpeg?auto=compress&cs=tinysrgb&w=216&h=216&fit=crop" alt="" loading="lazy">
+          <span class="offer-badge">1+1 FREE</span>
+        </figure>
+        <figure class="hero-thumb ht-2" aria-hidden="true">
+          <img src="https://images.pexels.com/photos/12939801/pexels-photo-12939801.jpeg?auto=compress&cs=tinysrgb&w=216&h=216&fit=crop" alt="" loading="lazy">
+          <span class="offer-badge">1+1 FREE</span>
+        </figure>
+
+        <div class="hero-sticker" aria-hidden="true">1+1<br>FREE</div>
       </section>
 
-      <!-- Promo tile grid -->
+      <!-- Pastel promo cards -->
       <section class="section" aria-labelledby="promo-title">
-        <h2 id="promo-title">This week at PLUS</h2>
-        <div class="tile-grid">
-          <article class="tile">
-            <div class="tile-visual v-red" aria-hidden="true">🍖</div>
-            <div class="tile-body">
+        <h2 id="promo-title" class="visually-hidden">This week at PLUS</h2>
+        <div class="promo-row">
+          <article class="promo-card p-green">
+            <div class="promo-text">
               <h3>BBQ offers of the week</h3>
-              <p>3+1 FREE on the full BBQ range. Fire it up.</p>
-              <a href="#">View offers →</a>
+              <a href="#">View offers ›</a>
+            </div>
+            <div class="promo-media">
+              <img src="https://images.pexels.com/photos/2233730/pexels-photo-2233730.jpeg?auto=compress&cs=tinysrgb&w=420&h=420&fit=crop" alt="Meat skewers on a barbecue grill" loading="lazy">
+              <span class="offer-badge badge-green">3+1 FREE</span>
             </div>
           </article>
-          <article class="tile">
-            <div class="tile-visual v-yellow" aria-hidden="true">🥜</div>
-            <div class="tile-body">
-              <h3>All peanut butter 350&nbsp;g</h3>
-              <p>Now 1+1 FREE on every jar.</p>
-              <a href="#">Shop now →</a>
+          <article class="promo-card p-blue">
+            <div class="promo-text">
+              <h3>All peanut butter now 1+1 FREE</h3>
+              <a href="#">Shop your deal! ›</a>
+            </div>
+            <div class="promo-media">
+              <img src="https://images.pexels.com/photos/5149346/pexels-photo-5149346.jpeg?auto=compress&cs=tinysrgb&w=420&h=420&fit=crop" alt="Jar of peanut butter with peanuts" loading="lazy">
+              <span class="offer-badge">1+1 FREE</span>
             </div>
           </article>
-          <article class="tile">
-            <div class="tile-visual v-green" aria-hidden="true">📰</div>
-            <div class="tile-body">
-              <h3>Weekly flyer</h3>
-              <p>All offers of this week in one overview.</p>
-              <a href="#">Open the flyer →</a>
+          <article class="promo-card p-rose">
+            <div class="promo-text">
+              <h3>Flyer of the week</h3>
+              <a href="#">All offers ›</a>
+            </div>
+            <div class="promo-media">
+              <img src="https://images.pexels.com/photos/1366594/pexels-photo-1366594.jpeg?auto=compress&cs=tinysrgb&w=420&h=420&fit=crop" alt="Fully stocked supermarket shelves" loading="lazy">
             </div>
           </article>
-          <article class="tile">
-            <div class="tile-visual v-blue" aria-hidden="true">🚚</div>
-            <div class="tile-body">
-              <h3>Free delivery deals</h3>
-              <p>Selected brands delivered free from € 8.50.</p>
-              <a href="#">View deals →</a>
-            </div>
-          </article>
-          <article class="tile">
-            <div class="tile-visual v-orange" aria-hidden="true">✨</div>
-            <div class="tile-body">
-              <h3>New in store</h3>
-              <p>Fresh arrivals — now on the shelf.</p>
-              <a href="#">Discover →</a>
-            </div>
-          </article>
-          <article class="tile">
-            <div class="tile-visual v-green" aria-hidden="true">📦</div>
-            <div class="tile-body">
-              <h3>PLUS Delivery Bundle</h3>
-              <p>Unlimited delivery on all your orders. Try 1 month free.</p>
-              <a href="#">Try it free →</a>
-            </div>
-          </article>
+        </div>
+
+        <!-- Green delivery-bundle strip -->
+        <div class="bundle-strip">
+          <svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg>
+          <span>New! The PLUS Delivery Bundle</span>
+          <a href="#">Try 1 month free ›</a>
         </div>
       </section>
 
@@ -162,28 +184,28 @@
         <div class="offer-grid">
           <article class="offer-card">
             <span class="offer-badge">1+1 FREE</span>
-            <div class="offer-visual v-yellow" aria-hidden="true">🥜</div>
+            <div class="offer-visual v-yellow"><img src="https://images.pexels.com/photos/8611766/pexels-photo-8611766.jpeg?auto=compress&cs=tinysrgb&w=480&h=360&fit=crop" alt="Creamy peanut butter in a glass jar" loading="lazy"></div>
             <h3>Peanut Butter Crunchy</h3>
             <p class="offer-unit">Jar 350 g</p>
             <p class="offer-price"><span class="was">€ 3.79</span>€ 1.89</p>
           </article>
           <article class="offer-card">
             <span class="offer-badge">1+1 FREE</span>
-            <div class="offer-visual v-red" aria-hidden="true">🥤</div>
+            <div class="offer-visual v-red"><img src="https://images.pexels.com/photos/8880742/pexels-photo-8880742.jpeg?auto=compress&cs=tinysrgb&w=480&h=360&fit=crop" alt="Glass of soda with ice cubes" loading="lazy"></div>
             <h3>Cola, Orange &amp; Lemon-Lime</h3>
             <p class="offer-unit">Bottle 1.5 L</p>
             <p class="offer-price"><span class="was">€ 2.59</span>€ 1.29</p>
           </article>
           <article class="offer-card">
             <span class="offer-badge">1+1 FREE</span>
-            <div class="offer-visual v-blue" aria-hidden="true">🍦</div>
+            <div class="offer-visual v-blue"><img src="https://images.pexels.com/photos/4725712/pexels-photo-4725712.jpeg?auto=compress&cs=tinysrgb&w=480&h=360&fit=crop" alt="Chocolate and vanilla ice cream bars" loading="lazy"></div>
             <h3>A-Brand Ice Cream Bars</h3>
             <p class="offer-unit">Box of 6</p>
             <p class="offer-price"><span class="was">€ 4.99</span>€ 2.49</p>
           </article>
           <article class="offer-card">
             <span class="offer-badge">3+1 FREE</span>
-            <div class="offer-visual v-orange" aria-hidden="true">🍗</div>
+            <div class="offer-visual v-orange"><img src="https://images.pexels.com/photos/5407359/pexels-photo-5407359.jpeg?auto=compress&cs=tinysrgb&w=480&h=360&fit=crop" alt="Grilled meat skewers" loading="lazy"></div>
             <h3>BBQ Chicken Skewers</h3>
             <p class="offer-unit">Pack 4 pieces</p>
             <p class="offer-price"><span class="was">€ 5.49</span>€ 4.12</p>
@@ -195,18 +217,18 @@
       <section class="section" aria-labelledby="cat-title">
         <h2 id="cat-title">Our range</h2>
         <div class="category-grid">
-          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🏷️</span>Offers</a>
-          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🍖</span>BBQ Range</a>
-          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🥔</span>Potatoes, Veg, Fruit</a>
-          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🍝</span>Fresh Ready Meals</a>
-          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🍗</span>Meat, Fish, Veggie</a>
-          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🧀</span>Cheese &amp; Deli</a>
-          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🥛</span>Dairy, Eggs, Butter</a>
-          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🍞</span>Bread &amp; Bakery</a>
-          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">☕</span>Drinks, Coffee, Tea</a>
-          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🍷</span>Wine, Beer, Spirits</a>
-          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🧊</span>Frozen</a>
-          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true">🧴</span>Household &amp; Care</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true"><svg class="ico"><use href="#i-tag"/></svg></span>Offers</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true"><svg class="ico"><use href="#i-flame"/></svg></span>BBQ Range</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true"><svg class="ico"><use href="#i-leaf"/></svg></span>Potatoes, Veg, Fruit</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true"><svg class="ico"><use href="#i-bowl"/></svg></span>Fresh Ready Meals</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true"><svg class="ico"><use href="#i-fish"/></svg></span>Meat, Fish, Veggie</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true"><svg class="ico"><use href="#i-cheese"/></svg></span>Cheese &amp; Deli</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true"><svg class="ico"><use href="#i-drop"/></svg></span>Dairy, Eggs, Butter</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true"><svg class="ico"><use href="#i-bread"/></svg></span>Bread &amp; Bakery</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true"><svg class="ico"><use href="#i-cup"/></svg></span>Drinks, Coffee, Tea</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true"><svg class="ico"><use href="#i-wine"/></svg></span>Wine, Beer, Spirits</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true"><svg class="ico"><use href="#i-snow"/></svg></span>Frozen</a>
+          <a class="category-card" href="#"><span class="cat-icon" aria-hidden="true"><svg class="ico"><use href="#i-spray"/></svg></span>Household &amp; Care</a>
         </div>
       </section>
 
@@ -215,28 +237,28 @@
         <h2 id="recipe-title">Cooking with this week's offers</h2>
         <div class="recipe-grid">
           <article class="recipe-card">
-            <div class="recipe-visual v-yellow" aria-hidden="true">🥪</div>
+            <div class="recipe-visual v-yellow"><img src="https://images.pexels.com/photos/6659687/pexels-photo-6659687.jpeg?auto=compress&cs=tinysrgb&w=480&h=320&fit=crop" alt="Toast with peanut butter and banana slices" loading="lazy"></div>
             <div class="recipe-body">
               <h3>Banana &amp; peanut butter toastie</h3>
               <span class="recipe-time">20 min</span>
             </div>
           </article>
           <article class="recipe-card">
-            <div class="recipe-visual v-red" aria-hidden="true">🍕</div>
+            <div class="recipe-visual v-red"><img src="https://images.pexels.com/photos/34590349/pexels-photo-34590349.jpeg?auto=compress&cs=tinysrgb&w=480&h=320&fit=crop" alt="Homemade focaccia with olives" loading="lazy"></div>
             <div class="recipe-body">
               <h3>Focaccia pizza</h3>
               <span class="recipe-time">20 min</span>
             </div>
           </article>
           <article class="recipe-card">
-            <div class="recipe-visual v-orange" aria-hidden="true">🥔</div>
+            <div class="recipe-visual v-orange"><img src="https://images.pexels.com/photos/792027/pexels-photo-792027.jpeg?auto=compress&cs=tinysrgb&w=480&h=320&fit=crop" alt="Plate with roasted potatoes and meat" loading="lazy"></div>
             <div class="recipe-body">
               <h3>BBQ potatoes with pulled chicken</h3>
               <span class="recipe-time">75 min</span>
             </div>
           </article>
           <article class="recipe-card">
-            <div class="recipe-visual v-green" aria-hidden="true">🥗</div>
+            <div class="recipe-visual v-green"><img src="https://images.pexels.com/photos/13241736/pexels-photo-13241736.jpeg?auto=compress&cs=tinysrgb&w=480&h=320&fit=crop" alt="Fresh salad with mozzarella, tomato and basil" loading="lazy"></div>
             <div class="recipe-body">
               <h3>Peach &amp; burrata salad</h3>
               <span class="recipe-time">30 min</span>
@@ -309,13 +331,13 @@
         <a href="#">Cookie Information</a>
         <div class="footer-social">
           <a href="#" aria-label="Facebook">f</a>
-          <a href="#" aria-label="X">𝕏</a>
+          <a href="#" aria-label="X">X</a>
           <a href="#" aria-label="Instagram">◎</a>
           <a href="#" aria-label="YouTube">▶</a>
-          <a href="#" aria-label="Pinterest">📌</a>
+          <a href="#" aria-label="Pinterest">P</a>
         </div>
       </div>
-      <p class="footer-demo-note">Demo environment for product demonstration purposes only. Not affiliated with PLUS Retail.</p>
+      <p class="footer-demo-note">Demo environment for product demonstration purposes only. Not affiliated with PLUS Retail. Photography via Pexels (free license).</p>
     </div>
   </footer>
 
