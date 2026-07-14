@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 60" role="img" aria-label="PLUS demo logo">
+  <!-- DEMO wordmark: original recreation for demo purposes, not the official PLUS logo -->
+  <g fill="#ffffff">
+    <circle cx="21" cy="21" r="11"/>
+    <circle cx="45" cy="21" r="11"/>
+    <circle cx="21" cy="45" r="11"/>
+    <circle cx="45" cy="45" r="11"/>
+  </g>
+  <circle cx="33" cy="33" r="6" fill="#8DAB0A"/>
+  <text x="68" y="48" font-family="Nunito, Arial, sans-serif" font-size="42" font-weight="900" fill="#ffffff" letter-spacing="1">PLUS</text>
+</svg>
