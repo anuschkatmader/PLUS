@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!-- DEMO ENVIRONMENT — NOT AFFILIATED WITH PLUS RETAIL. For product demonstration purposes only. -->
 <html lang="en">
@@ -488,29 +487,41 @@ function OptanonWrapper() { }
 
     /* ---------- OneTrust web form – skin to match the PLUS site ---------- */
     /* The collection-point form is injected by OneTrust at runtime, so its
-       markup isn't visible here. These rules target OneTrust's typical
-       embedded-form wrappers + generic form elements and restyle them to
-       match the site (rounded inputs, PLUS-green button, Nunito).
-       If the rendered form uses different class names, inspect and adjust. */
-    [class*="ot-form"],
-    [class*="ot-web-form"],
-    .ot-sdk-container[role="dialog"] {
-      font-family: var(--font, "Nunito", sans-serif) !important;
-      color: var(--text, #333) !important;
-      border-radius: var(--radius-lg, 14px) !important;
+       markup isn't visible here. Selectors below were verified against the
+       live rendered form (2026-07-14): wrapper .ot-consent-inline,
+       form.ot-form, labels .ot-label, submit button button.ot-submit
+       (type="button", kept disabled by OneTrust until the form is valid). */
+
+    /* remove OneTrust's boxed frame (dark border, inner padding, side margins) */
+    #ot-container .ot-consent-inline {
+      border: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: transparent !important;
     }
 
-    [class*="ot-form"] h1, [class*="ot-form"] h2,
-    [class*="ot-web-form"] h1, [class*="ot-web-form"] h2 {
+    /* full modal width, no clipped glyphs (the form is a scroll container
+       whose hidden overflow was shaving the left edge of the labels) */
+    #ot-container form.ot-form {
+      overflow: visible !important;
+      padding: 2px !important;
+      width: 100% !important;
       font-family: var(--font, "Nunito", sans-serif) !important;
       color: var(--text, #333) !important;
     }
+    #ot-container .otwf-content,
+    #ot-container .ot-form-content { width: 100% !important; }
 
-    [class*="ot-form"] input[type="text"],
-    [class*="ot-form"] input[type="email"],
-    [class*="ot-web-form"] input[type="text"],
-    [class*="ot-web-form"] input[type="email"],
-    input.ot-input-txt {
+    #ot-container .ot-label {
+      font-family: var(--font, "Nunito", sans-serif) !important;
+      font-weight: 700 !important;
+      color: var(--text, #333) !important;
+    }
+
+    #ot-container .ot-form input[type="text"],
+    #ot-container .ot-form input[type="email"] {
+      width: 100% !important;
+      box-sizing: border-box !important;
       font-family: var(--font, "Nunito", sans-serif) !important;
       font-size: 1rem !important;
       padding: 12px 14px !important;
@@ -520,39 +531,38 @@ function OptanonWrapper() { }
       color: var(--text, #333) !important;
       box-shadow: none !important;
     }
-    [class*="ot-form"] input:focus,
-    [class*="ot-web-form"] input:focus {
+    #ot-container .ot-form input:focus {
       outline: 3px solid var(--plus-green, #8DAB0A) !important;
       outline-offset: 2px !important;
       border-color: var(--plus-green, #8DAB0A) !important;
     }
-
-    [class*="ot-form"] input[type="checkbox"],
-    [class*="ot-web-form"] input[type="checkbox"] {
+    #ot-container .ot-form input[type="checkbox"] {
       accent-color: var(--plus-green, #8DAB0A) !important;
       width: 17px !important; height: 17px !important;
     }
 
-    /* submit / primary buttons inside the OneTrust form */
-    [class*="ot-form"] button[type="submit"],
-    [class*="ot-web-form"] button[type="submit"],
-    .ot-form-btn, .ot-web-form-submit, button.ot-submit-btn {
+    /* submit button: PLUS green, muted green while disabled */
+    #ot-container button.ot-submit {
       background: var(--plus-green, #8DAB0A) !important;
       color: #fff !important;
-      border: 2px solid transparent !important;
+      border: 0 !important;
       border-radius: var(--radius, 10px) !important;
+      width: 100% !important;
       padding: .8rem 1.6rem !important;
       font-family: var(--font, "Nunito", sans-serif) !important;
       font-weight: 800 !important;
+      font-size: 1rem !important;
       cursor: pointer !important;
     }
-    [class*="ot-form"] button[type="submit"]:hover,
-    .ot-form-btn:hover, .ot-web-form-submit:hover {
+    #ot-container button.ot-submit:hover:not(:disabled) {
       background: var(--plus-green-dark, #718908) !important;
     }
+    #ot-container button.ot-submit:disabled {
+      background: #C9D68C !important;
+      cursor: not-allowed !important;
+    }
 
-    [class*="ot-form"] a,
-    [class*="ot-web-form"] a { color: var(--plus-green-dark, #718908) !important; }
+    #ot-container .ot-form a { color: var(--plus-green-dark, #718908) !important; }
   </style>
 
   <div class="modal-overlay" id="offerModal" role="dialog" aria-modal="true" aria-labelledby="offerTitle" aria-hidden="true">
@@ -570,7 +580,7 @@ function OptanonWrapper() { }
         <div id="offerSignup">
           <span class="modal-eyebrow">PLUS Newsletter</span>
           <h2 id="offerTitle">Get 10% off your first order</h2>
-          <p class="modal-sub">Sign up for the PLUS newsletter and receive a 10% discount code for your first online order, plus the best offers ~2x per week.</p>
+          <p class="modal-sub">Sign up for the PLUS newsletter and receive a 10% discount code for your first online order.</p>
 
           <!-- ============================================================= -->
           <!-- ONETRUST WEB FORM (UCPM collection point)                     -->
