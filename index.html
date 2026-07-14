@@ -500,6 +500,11 @@ function OptanonWrapper() { }
       background: transparent !important;
     }
 
+    /* OneTrust reserves a 44px strip above the form for its own close
+       button (unused in inline mode); it created a large empty gap
+       between the intro text and the Name field */
+    #ot-container .otwf-close-cntr { display: none !important; }
+
     /* full modal width, no clipped glyphs (the form is a scroll container
        whose hidden overflow was shaving the left edge of the labels) */
     #ot-container form.ot-form {
