@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!-- DEMO ENVIRONMENT — NOT AFFILIATED WITH PLUS RETAIL. For product demonstration purposes only. -->
 <html lang="en">
@@ -19,6 +20,19 @@ function OptanonWrapper() { }
   <!-- OneTrust Cookies Consent Notice start -->
   <!-- OneTrust Cookies Consent Notice end -->
   <!-- ============================================== -->
+
+  <!-- ===== START: OneTrust Consent Receipt SDK (loader for embedded web forms) ===== -->
+  <script>
+    window.OtSdk = window.OtSdk || function () {
+      (OtSdk.q = OtSdk.q || []).push(arguments);
+    };
+  </script>
+  <script
+    src="https://privacyportaltrial.onetrust.com/consent-embedded-forms/consent-receipt-scripts/OtFormStub.js"
+    data-id="89af9315-196c-45ad-88ea-1b8ec3fe5a51"
+    worker="https://consent-api.onetrust.com"
+  ></script>
+  <!-- ===== END: OneTrust Consent Receipt SDK ===== -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -361,6 +375,358 @@ function OptanonWrapper() { }
        ============================================================ -->
   <script src="assets/js/demo-analytics.js" class="demo-third-party demo-category-analytics"></script>
   <script src="assets/js/demo-ads.js" class="demo-third-party demo-category-advertising"></script>
+
+  <!-- ============================================================= -->
+  <!-- NEWSLETTER OFFER POPUP – OneTrust UCPM collection-point demo.  -->
+  <!-- Same structure as the ERGO demo: the modal contains an empty   -->
+  <!-- #ot-container into which OneTrust renders the real web form    -->
+  <!-- (InstallCP script near the end of <body>).                     -->
+  <!-- Opens once the OneTrust cookie banner is closed; if the CMP    -->
+  <!-- doesn't load, it falls back to a timed auto-open.              -->
+  <!-- On web-form submit, the popup switches to the success view     -->
+  <!-- showing the 10% discount code.                                 -->
+  <!-- ============================================================= -->
+  <style>
+    /* ---------- Offer popup (OneTrust collection-point demo) ---------- */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 100000; /* above the cookie banner */
+      background: rgba(30, 40, 20, .55);
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .2s ease;
+      font-family: var(--font, "Nunito", "Segoe UI", sans-serif);
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: auto; }
+
+    .modal {
+      position: relative;
+      width: 100%; max-width: 460px;
+      background: var(--bg, #fff);
+      border-radius: var(--radius-lg, 14px);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .35);
+      overflow: hidden;
+      transform: translateY(12px) scale(.98);
+      transition: transform .2s ease;
+    }
+    .modal-overlay.open .modal { transform: translateY(0) scale(1); }
+
+    /* Pale-green banner with the round red discount sticker (hero motif) */
+    .modal-banner {
+      aspect-ratio: 16 / 6;
+      background: var(--plus-green-pale, #F3F6E1);
+      display: grid; place-items: center;
+    }
+    .modal-sticker {
+      width: 92px; height: 92px; border-radius: 50%;
+      background: var(--promo-red, #E30613);
+      color: #fff;
+      display: grid; place-items: center;
+      text-align: center;
+      font-weight: 900; font-size: 1.15rem; line-height: 1.1;
+      transform: rotate(-8deg);
+      box-shadow: 0 6px 18px rgba(227, 6, 19, .3);
+    }
+
+    .modal-body { padding: 26px 28px 28px; }
+    .modal-body .modal-eyebrow {
+      display: block;
+      color: var(--plus-green-dark, #718908);
+      font-weight: 800; font-size: .8rem;
+      text-transform: uppercase; letter-spacing: .06em;
+      margin-bottom: .4rem;
+    }
+    .modal-body h2 {
+      font-size: 1.4rem; font-weight: 800;
+      color: var(--text, #333);
+      margin: 0 0 .4rem;
+    }
+    .modal-body .modal-sub {
+      color: var(--text-soft, #6b6b6b);
+      font-size: .96rem; line-height: 1.5;
+      margin: 0 0 18px;
+    }
+
+    /* OneTrust inline web-form mount: reserves space before the form renders */
+    .ot-form-mount { min-height: 40px; }
+
+    .modal-close {
+      position: absolute; top: 12px; right: 12px; z-index: 3;
+      width: 38px; height: 38px; border-radius: 50%;
+      border: none; cursor: pointer;
+      background: rgba(255, 255, 255, .9);
+      color: var(--text, #333);
+      display: grid; place-items: center;
+      box-shadow: 0 2px 8px rgba(30, 40, 20, .18);
+    }
+    .modal-close:hover { background: #fff; }
+    .modal-close svg { width: 18px; height: 18px; }
+
+    .modal .btn-primary { width: 100%; justify-content: center; }
+    .modal-fineprint { font-size: .75rem; color: #8a8a8a; margin: 14px 0 0; text-align: center; }
+
+    .modal-success { text-align: center; padding: 8px 0 4px; }
+    .modal-success .ok-circle {
+      width: 56px; height: 56px; margin: 0 auto 14px; border-radius: 50%;
+      background: var(--plus-green-pale, #F3F6E1);
+      color: var(--plus-green-dark, #718908);
+      display: grid; place-items: center;
+    }
+    .modal-success .ok-circle svg { width: 30px; height: 30px; }
+    .modal-success h2 { margin-bottom: .3rem; }
+    .discount-code {
+      display: inline-block;
+      margin: 6px 0 16px;
+      padding: 12px 22px;
+      border: 2px dashed var(--plus-green, #8DAB0A);
+      border-radius: var(--radius, 10px);
+      background: var(--plus-green-pale, #F3F6E1);
+      color: var(--plus-green-dark, #718908);
+      font-weight: 900; font-size: 1.3rem; letter-spacing: .12em;
+    }
+    [hidden] { display: none !important; }
+
+    /* ---------- OneTrust web form – skin to match the PLUS site ---------- */
+    /* The collection-point form is injected by OneTrust at runtime, so its
+       markup isn't visible here. These rules target OneTrust's typical
+       embedded-form wrappers + generic form elements and restyle them to
+       match the site (rounded inputs, PLUS-green button, Nunito).
+       If the rendered form uses different class names, inspect and adjust. */
+    [class*="ot-form"],
+    [class*="ot-web-form"],
+    .ot-sdk-container[role="dialog"] {
+      font-family: var(--font, "Nunito", sans-serif) !important;
+      color: var(--text, #333) !important;
+      border-radius: var(--radius-lg, 14px) !important;
+    }
+
+    [class*="ot-form"] h1, [class*="ot-form"] h2,
+    [class*="ot-web-form"] h1, [class*="ot-web-form"] h2 {
+      font-family: var(--font, "Nunito", sans-serif) !important;
+      color: var(--text, #333) !important;
+    }
+
+    [class*="ot-form"] input[type="text"],
+    [class*="ot-form"] input[type="email"],
+    [class*="ot-web-form"] input[type="text"],
+    [class*="ot-web-form"] input[type="email"],
+    input.ot-input-txt {
+      font-family: var(--font, "Nunito", sans-serif) !important;
+      font-size: 1rem !important;
+      padding: 12px 14px !important;
+      border: 1px solid var(--border, #e4e6e0) !important;
+      border-radius: var(--radius, 10px) !important;
+      background: var(--bg, #fff) !important;
+      color: var(--text, #333) !important;
+      box-shadow: none !important;
+    }
+    [class*="ot-form"] input:focus,
+    [class*="ot-web-form"] input:focus {
+      outline: 3px solid var(--plus-green, #8DAB0A) !important;
+      outline-offset: 2px !important;
+      border-color: var(--plus-green, #8DAB0A) !important;
+    }
+
+    [class*="ot-form"] input[type="checkbox"],
+    [class*="ot-web-form"] input[type="checkbox"] {
+      accent-color: var(--plus-green, #8DAB0A) !important;
+      width: 17px !important; height: 17px !important;
+    }
+
+    /* submit / primary buttons inside the OneTrust form */
+    [class*="ot-form"] button[type="submit"],
+    [class*="ot-web-form"] button[type="submit"],
+    .ot-form-btn, .ot-web-form-submit, button.ot-submit-btn {
+      background: var(--plus-green, #8DAB0A) !important;
+      color: #fff !important;
+      border: 2px solid transparent !important;
+      border-radius: var(--radius, 10px) !important;
+      padding: .8rem 1.6rem !important;
+      font-family: var(--font, "Nunito", sans-serif) !important;
+      font-weight: 800 !important;
+      cursor: pointer !important;
+    }
+    [class*="ot-form"] button[type="submit"]:hover,
+    .ot-form-btn:hover, .ot-web-form-submit:hover {
+      background: var(--plus-green-dark, #718908) !important;
+    }
+
+    [class*="ot-form"] a,
+    [class*="ot-web-form"] a { color: var(--plus-green-dark, #718908) !important; }
+  </style>
+
+  <div class="modal-overlay" id="offerModal" role="dialog" aria-modal="true" aria-labelledby="offerTitle" aria-hidden="true">
+    <div class="modal">
+      <button class="modal-close" type="button" data-close-offer aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+
+      <div class="modal-banner" aria-hidden="true">
+        <span class="modal-sticker">10%<br>OFF</span>
+      </div>
+
+      <div class="modal-body">
+        <!-- Sign-up view -->
+        <div id="offerSignup">
+          <span class="modal-eyebrow">PLUS Newsletter</span>
+          <h2 id="offerTitle">Get 10% off your first order</h2>
+          <p class="modal-sub">Sign up for the PLUS newsletter and receive a 10% discount code for your first online order, plus the best offers ~2x per week.</p>
+
+          <!-- ============================================================= -->
+          <!-- ONETRUST WEB FORM (UCPM collection point)                     -->
+          <!-- OneTrust renders the real web form inline into this container.-->
+          <!-- InstallCP(...) near the end of <body> targets #ot-container   -->
+          <!-- using the collection-point ID b90a1a08-...                    -->
+          <!-- The form is skinned to match the site via the override CSS    -->
+          <!-- above.                                                        -->
+          <!-- ============================================================= -->
+          <div id="ot-container" class="ot-form-mount"></div>
+        </div>
+
+        <!-- Success view: shown after the web form is submitted -->
+        <div class="modal-success" id="offerSuccess" hidden>
+          <div class="ok-circle" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h2>Welcome to the PLUS newsletter!</h2>
+          <p class="modal-sub">Here is your discount code for 10% off your first order:</p>
+          <p class="discount-code">PLUS10-WELCOME</p>
+          <button class="btn btn-primary" type="button" data-close-offer>Start shopping</button>
+          <p class="modal-fineprint">You will also receive the code by email together with your subscription confirmation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Offer popup behaviour (open / close / success view) -->
+  <script>
+    (function () {
+      var overlay = document.getElementById('offerModal');
+      if (!overlay) return;
+
+      var AUTO_OPEN = true;          // set to false to disable auto-open entirely
+      var AUTO_OPEN_DELAY = 4000;    // fallback delay if the cookie banner never appears
+      var SUCCESS_DELAY = 900;       // ms after submit before the code is revealed
+      var lastFocus = null, opened = false;
+
+      function open() {
+        if (opened) return;
+        opened = true;
+        lastFocus = document.activeElement;
+        overlay.classList.add('open');
+        overlay.setAttribute('aria-hidden', 'false');
+        var first = overlay.querySelector('input, button');
+        if (first) first.focus();
+      }
+      function close() {
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden', 'true');
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+      }
+
+      document.querySelectorAll('[data-open-offer]').forEach(function (el) {
+        el.addEventListener('click', function (e) { e.preventDefault(); opened = false; open(); });
+      });
+      overlay.querySelectorAll('[data-close-offer]').forEach(function (el) {
+        el.addEventListener('click', close);
+      });
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && overlay.classList.contains('open')) close();
+      });
+
+      /* Preferred trigger: open once the OneTrust cookie banner is closed.
+         The CMP calls OptanonWrapper() when the SDK loads and again each
+         time consent is saved; IsAlertBoxClosed() is true once the banner
+         has been dealt with. We wrap the existing OptanonWrapper instead
+         of replacing it. */
+      var previousWrapper = window.OptanonWrapper;
+      window.OptanonWrapper = function () {
+        if (typeof previousWrapper === 'function') previousWrapper();
+        if (window.OneTrust && OneTrust.IsAlertBoxClosed && OneTrust.IsAlertBoxClosed()) {
+          setTimeout(open, 600);
+        }
+      };
+
+      /* Fallback: if the CMP never loads (e.g. page opened locally),
+         behave like the ERGO demo and auto-open on a timer. */
+      if (AUTO_OPEN) {
+        setTimeout(function () {
+          if (!window.OneTrust || !OneTrust.IsAlertBoxClosed) open();
+        }, AUTO_OPEN_DELAY);
+      }
+
+      /* Success view: when the OneTrust web form's submit button is
+         clicked and the form fields are valid, reveal the discount code.
+         The form is injected into #ot-container at runtime, so we use a
+         delegated listener on the container. */
+      var mount = document.getElementById('ot-container');
+      var signupView = document.getElementById('offerSignup');
+      var successView = document.getElementById('offerSuccess');
+
+      function showSuccess() {
+        signupView.hidden = true;
+        successView.hidden = false;
+        var btn = successView.querySelector('button');
+        if (btn) btn.focus();
+      }
+
+      function isSubmitControl(el) {
+        var btn = el.closest ? el.closest('button, input[type="submit"]') : null;
+        if (!btn) return false;
+        var type = (btn.getAttribute('type') || '').toLowerCase();
+        return type === 'submit' || /submit|sign\s*up|subscribe|anmelden/i.test(btn.textContent || btn.value || '');
+      }
+
+      function handleSubmitIntent() {
+        var invalid = mount.querySelector('input:invalid');
+        var email = mount.querySelector('input[type="email"], input[name*="mail" i]');
+        if (invalid) return;                       // let OneTrust show its validation
+        if (email && !email.value) return;
+        setTimeout(showSuccess, SUCCESS_DELAY);    // give the consent receipt a moment to be recorded
+      }
+
+      if (mount) {
+        mount.addEventListener('click', function (e) {
+          if (isSubmitControl(e.target)) handleSubmitIntent();
+        });
+        mount.addEventListener('submit', function () { handleSubmitIntent(); }, true);
+      }
+    })();
+  </script>
+
+  <!-- ===== START: OneTrust web form install (renders the inline form into #ot-container) ===== -->
+  <script>
+  (function () {
+    // Collection point ID for the newsletter sign-up web form.
+    // To change: update CP_ID to the collection point ID from your OneTrust dashboard.
+    var CP_ID = "b90a1a08-78df-4be5-ac3d-2721a404430d";
+
+    function whenOTReady(callback) {
+      var timer = setInterval(function () {
+        if (window.OneTrust && window.OneTrust.webform && window.OneTrust.webform.InstallCP) {
+          clearInterval(timer);
+          callback();
+        }
+      }, 80);
+    }
+
+    function install() {
+      whenOTReady(function () {
+        OneTrust.webform.InstallCP(CP_ID, {
+          target: "#ot-container"
+        });
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", install);
+    } else {
+      install();
+    }
+  })();
+  </script>
+  <!-- ===== END: OneTrust web form install ===== -->
 
 </body>
 </html>
